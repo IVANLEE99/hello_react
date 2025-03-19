@@ -46,8 +46,18 @@
         }
         render() {
           return (
-            <h1>Hello, React!今天天气很{this.state.isHot ? "炎热" : "凉爽"}</h1>
+            <h1 onClick={this.changeWeather}>
+              Hello, React!今天天气很{this.state.isHot ? "炎热" : "凉爽"}
+            </h1>
           );
+        }
+        changeWeather() {
+          console.log("click");
+          // const isHot = this.state.isHot;
+          // this.state.isHot = !isHot;
+          // this.setState({
+          //   isHot: !this.state.isHot,
+          // });
         }
       }
       // 2. 渲染组件
