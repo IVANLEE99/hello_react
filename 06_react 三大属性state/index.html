@@ -43,6 +43,7 @@
           this.state = {
             isHot: false,
           };
+          this.changeWeather = this.changeWeather.bind(this);
         }
         render() {
           return (
@@ -52,12 +53,12 @@
           );
         }
         changeWeather() {
-          console.log("click");
+          console.log("click",this);
           // const isHot = this.state.isHot;
           // this.state.isHot = !isHot;
-          // this.setState({
-          //   isHot: !this.state.isHot,
-          // });
+          this.setState({
+            isHot: !this.state.isHot,
+          });
         }
       }
       // 2. 渲染组件
