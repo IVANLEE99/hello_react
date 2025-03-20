@@ -47,8 +47,18 @@
         increment = () => {
           this.setState({ count: this.state.count + 1 });
         };
+        death = () => {
+          ReactDOM.unmountComponentAtNode(document.getElementById("root"));
+        };
         componentWillMount() {
           console.log("Counter---componentWillMount");
+        }
+        shouldComponentUpdate() {
+          console.log("Counter---shouldComponentUpdate");
+          return true;
+        }
+        componentWillUpdate() {
+          console.log("Counter---componentWillUpdate");
         }
         render() {
           console.log("Counter---render");
@@ -56,11 +66,18 @@
             <div>
               <h1>当前计数：{this.state.count}</h1>
               <button onClick={this.increment}>点我+1</button>
+              <button onClick={this.death}>点我卸载</button>
             </div>
           );
         }
         componentDidMount() {
           console.log("Counter---componentDidMount");
+        }
+        componentDidUpdate() {
+          console.log("Counter---componentDidUpdate");
+        }
+        componentWillUnmount() {
+          console.log("Counter---componentWillUnmount");
         }
       }
       ReactDOM.render(<Counter />, document.getElementById("root"));
