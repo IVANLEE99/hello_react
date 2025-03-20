@@ -50,6 +50,9 @@
         death = () => {
           ReactDOM.unmountComponentAtNode(document.getElementById("root"));
         };
+        update = () => {
+          this.forceUpdate();
+        };
         componentWillMount() {
           console.log("Counter---componentWillMount");
         }
@@ -67,6 +70,7 @@
               <h1>当前计数：{this.state.count}</h1>
               <button onClick={this.increment}>点我+1</button>
               <button onClick={this.death}>点我卸载</button>
+              <button onClick={this.update}>点我强制更新</button>
             </div>
           );
         }
