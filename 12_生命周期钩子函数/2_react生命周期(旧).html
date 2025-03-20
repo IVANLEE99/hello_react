@@ -84,7 +84,54 @@
           console.log("Counter---componentWillUnmount");
         }
       }
-      ReactDOM.render(<Counter />, document.getElementById("root"));
+
+      class A extends React.Component {
+        state = {
+          carName: "奔驰",
+        };
+        changeCar = () => {
+          this.setState({ carName: "宝马" });
+        };
+        render() {
+          return (
+            <div>
+              <h1>A组件</h1>
+              <button onClick={this.changeCar}>点我更新</button>
+              <B carName={this.state.carName} />
+            </div>
+          );
+        }
+      }
+      class B extends React.Component {
+        componentWillReceiveProps(nextProps) {
+          console.log(
+            "B组件接收到的参数：componentWillReceiveProps",
+            nextProps
+          );
+        }
+        shouldComponentUpdate() {
+          console.log("B组件是否更新：shouldComponentUpdate");
+          return true;
+        }
+        componentWillUpdate() {
+          console.log("B组件更新中：componentWillUpdate");
+        }
+        render() {
+          console.log("B组件渲染：render");
+          return (
+            <div>
+              <h1>B组件 {this.props.carName}</h1>
+            </div>
+          );
+        }
+        componentDidUpdate() {
+          console.log("B组件更新完毕：componentDidUpdate");
+        }
+        componentWillUnmount() {
+          console.log("B组件卸载：componentWillUnmount");
+        }
+      }
+      ReactDOM.render(<A />, document.getElementById("root"));
     </script>
   </body>
 </html>
