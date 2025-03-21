@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>react app</title>
+    <style>
+      .title {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1. 准备一个容器 -->
+    <div id="root"></div>
+    <!-- 2. 引入react核心库 -->
+    <script
+      type="text/javascript"
+      src="../js/17.0.1/react.development.js"
+    ></script>
+    <!-- 3. 引入react-dom 用于react操作dom -->
+    <script
+      type="text/javascript"
+      src="../js/17.0.1/react-dom.development.js"
+    ></script>
+    <!-- 4. 引入babel 用于将jsx转换为js -->
+    <script type="text/javascript" src="../js/17.0.1/babel.min.js"></script>
+    <script type="text/babel">
+      /*
+       * jsx 语法规则
+       * 1. 定义虚拟dom时，不要写引号
+       * 2. 标签中混入js表达式时，使用{}
+       * 3. 样式的类名使用className
+       * 4. 内联样式使用style={{myKey:value}},虚拟dom的属性名使用驼峰命名法
+       * 5. 虚拟dom必须有唯一的根标签
+       * 6. 标签必须闭合
+       * 7. 标签首字母
+       *   小写字母开头：则将该标签转换为html中自闭合标签
+       *   大写字母开头：react组件
+       *
+       */
+      class Counter extends React.Component {
+        constructor(props) {
+          console.log("Counter---constructor");
+          super(props);
+          this.state = {
+            count: 0,
+          };
+        }
+        increment = () => {
+          this.setState({ count: this.state.count + 1 });
+        };
+        death = () => {
+          ReactDOM.unmountComponentAtNode(document.getElementById("root"));
+        };
+        update = () => {
+          this.forceUpdate();
+        };
+        componentWillMount() {
+          console.log("Counter---componentWillMount");
+        }
+        shouldComponentUpdate() {
+          console.log("Counter---shouldComponentUpdate");
+          return true;
+        }
+        componentWillUpdate() {
+          console.log("Counter---componentWillUpdate");
+        }
+        render() {
+          console.log("Counter---render");
+          return (
+            <div>
+              <h1>当前计数：{this.state.count}</h1>
+              <button onClick={this.increment}>点我+1</button>
+              <button onClick={this.death}>点我卸载</button>
+              <button onClick={this.update}>点我强制更新</button>
+            </div>
+          );
+        }
+        componentDidMount() {
+          console.log("Counter---componentDidMount");
+        }
+        componentDidUpdate() {
+          console.log("Counter---componentDidUpdate");
+        }
+        componentWillUnmount() {
+          console.log("Counter---componentWillUnmount");
+        }
+      }
+
+      class A extends React.Component {
+        state = {
+          carName: "奔驰",
+        };
+        changeCar = () => {
+          this.setState({ carName: "宝马" });
+        };
+        render() {
+          return (
+            <div>
+              <h1>A组件</h1>
+              <button onClick={this.changeCar}>点我更新</button>
+              <B carName={this.state.carName} />
+            </div>
+          );
+        }
+      }
+      class B extends React.Component {
+        componentWillReceiveProps(nextProps) {
+          console.log(
+            "B组件接收到的参数：componentWillReceiveProps",
+            nextProps
+          );
+        }
+        shouldComponentUpdate() {
+          console.log("B组件是否更新：shouldComponentUpdate");
+          return true;
+        }
+        componentWillUpdate() {
+          console.log("B组件更新中：componentWillUpdate");
+        }
+        render() {
+          console.log("B组件渲染：render");
+          return (
+            <div>
+              <h1>B组件 {this.props.carName}</h1>
+            </div>
+          );
+        }
+        componentDidUpdate() {
+          console.log("B组件更新完毕：componentDidUpdate");
+        }
+        componentWillUnmount() {
+          console.log("B组件卸载：componentWillUnmount");
+        }
+      }
+      ReactDOM.render(<A />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
