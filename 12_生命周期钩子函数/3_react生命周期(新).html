@@ -56,14 +56,18 @@
         update = () => {
           this.forceUpdate();
         };
-        componentWillMount() {
+        static getDerivedStateFromProps(props, state) {
+          console.log("Counter---getDerivedStateFromProps", props, state);
+          return { count: 233333 };
+        }
+        UNSAFE_componentWillMount() {
           console.log("Counter---componentWillMount");
         }
         shouldComponentUpdate() {
           console.log("Counter---shouldComponentUpdate");
           return true;
         }
-        componentWillUpdate() {
+        UNSAFE_componentWillUpdate() {
           console.log("Counter---componentWillUpdate");
         }
         render() {
@@ -134,7 +138,7 @@
           console.log("B组件卸载：componentWillUnmount");
         }
       }
-      ReactDOM.render(<A />, document.getElementById("root"));
+      ReactDOM.render(<Counter />, document.getElementById("root"));
     </script>
   </body>
 </html>
