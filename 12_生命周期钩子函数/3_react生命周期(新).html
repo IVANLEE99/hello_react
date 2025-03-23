@@ -58,17 +58,18 @@
         };
         static getDerivedStateFromProps(props, state) {
           console.log("Counter---getDerivedStateFromProps", props, state);
-          return { count: 233333 };
+          return null;
         }
-        UNSAFE_componentWillMount() {
-          console.log("Counter---componentWillMount");
+        getSnapshotBeforeUpdate(prevProps, prevState) {
+          console.log("Counter---getSnapshotBeforeUpdate", prevProps, prevState);
+          return { dddd: "dddd" };
+        }
+        componentDidUpdate(prevProps, prevState, snapshot) {
+          console.log("Counter---componentDidUpdate", prevProps, prevState, snapshot);
         }
         shouldComponentUpdate() {
           console.log("Counter---shouldComponentUpdate");
           return true;
-        }
-        UNSAFE_componentWillUpdate() {
-          console.log("Counter---componentWillUpdate");
         }
         render() {
           console.log("Counter---render");
@@ -83,9 +84,6 @@
         }
         componentDidMount() {
           console.log("Counter---componentDidMount");
-        }
-        componentDidUpdate() {
-          console.log("Counter---componentDidUpdate");
         }
         componentWillUnmount() {
           console.log("Counter---componentWillUnmount");
