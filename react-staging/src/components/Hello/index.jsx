@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "./index.css";
+import HelloStyle from "./index.module.css";
 
 class Hello extends Component {
   render() {
     return (
-      <div className="title1">
+      <div className={HelloStyle.title}>
         <h1>Hello</h1>
       </div>
     );
