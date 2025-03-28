@@ -13,12 +13,16 @@ class App extends Component {
       { id: 3, name: "打豆豆", done: false },
     ],
   };
+  addTodo = (todoObj) => {
+    const { todos } = this.state;
+    this.setState({ todos: [todoObj, ...todos] });
+  };
   render() {
     const { todos } = this.state;
     return (
       <div className="todo-container">
         <div className="todo-wrap">
-          <Header />
+          <Header addTodo={this.addTodo} />
           <List todos={todos} />
           <Footer />
         </div>
