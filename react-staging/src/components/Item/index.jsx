@@ -9,8 +9,13 @@ export default class Item extends Component {
       this.setState({ mouse: flag });
     };
   };
+  handleCheck = (id) => {
+    return (event) => {
+      this.props.updateTodo(id, event.target.checked);
+    };
+  };
   render() {
-    const { name, done } = this.props;
+    const { name, done, id } = this.props;
     const { mouse } = this.state;
     return (
       <li
@@ -19,7 +24,11 @@ export default class Item extends Component {
         onMouseLeave={this.handleMouse(false)}
       >
         <label>
-          <input type="checkbox" defaultChecked={done} />
+          <input
+            type="checkbox"
+            defaultChecked={done}
+            onChange={this.handleCheck(id)}
+          />
           <span>{name}</span>
         </label>
         <button
