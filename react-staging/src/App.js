@@ -32,6 +32,14 @@ class App extends Component {
     const { todos } = this.state;
     this.setState({ todos: todos.filter((todo) => todo.id !== id) });
   };
+  checkAllTodo = (done) => {
+    const { todos } = this.state;
+    this.setState({ todos: todos.map((todo) => ({ ...todo, done })) });
+  };
+  clearAllDone = () => {
+    const { todos } = this.state;
+    this.setState({ todos: todos.filter((todo) => !todo.done) });
+  };
   render() {
     const { todos } = this.state;
     return (
@@ -43,7 +51,11 @@ class App extends Component {
             updateTodo={this.updateTodo}
             deleteTodo={this.deleteTodo}
           />
-          <Footer />
+          <Footer
+            todos={todos}
+            checkAllTodo={this.checkAllTodo}
+            clearAllDone={this.clearAllDone}
+          />
         </div>
       </div>
     );
