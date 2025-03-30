@@ -10,7 +10,7 @@ export default class Search extends Component {
     axios
       .get(`/api1/search/users?q=${keyword}`)
       .then((response) => {
-        console.log(response.data);
+        this.props.setUsers(response.data.items);
       })
       .catch((error) => {
         console.log(error);
