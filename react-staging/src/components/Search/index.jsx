@@ -7,13 +7,22 @@ export default class Search extends Component {
     let {
       keywordElement: { value: keyword },
     } = this;
+    this.props.updateAppState({ isFirst: false, isLoading: true });
     axios
       .get(`/api1/search/users?q=${keyword}`)
       .then((response) => {
-        this.props.setUsers(response.data.items);
+        this.props.updateAppState({
+          isFirst: false,
+          isLoading: false,
+          users: response.data.items,
+        });
       })
       .catch((error) => {
-        console.log(error);
+        this.props.updateAppState({
+          isFirst: false,
+          isLoading: false,
+          err: error.message,
+        });
       });
   };
   render() {

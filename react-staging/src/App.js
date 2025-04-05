@@ -4,16 +4,19 @@ import List from "./components/List";
 class App extends Component {
   state = {
     users: [],
+    isFirst: true,
+    isLoading: false,
+    err: "",
   };
-  setUsers = (users) => {
-    this.setState({ users });
+  updateAppState = (stateObj) => {
+    this.setState(stateObj);
   };
   render() {
     return (
       <div>
         <div class="container">
-          <Search setUsers={this.setUsers} />
-          <List users={this.state.users} />
+          <Search updateAppState={this.updateAppState} />
+          <List {...this.state} />
         </div>
       </div>
     );
