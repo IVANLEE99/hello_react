@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Route } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
 import "./App.css";
 import About from "./pages/About";
 import Home from "./pages/Home";
@@ -23,12 +23,20 @@ class App extends Component {
               <a className="list-group-item" href="./home.html">
                 Home
               </a> */}
-              <Link to="/about" className="list-group-item">
+              <NavLink
+                activeClassName="active"
+                to="/about"
+                className="list-group-item"
+              >
                 About
-              </Link>
-              <Link to="/home" className="list-group-item">
+              </NavLink>
+              <NavLink
+                activeClassName="active"
+                to="/home"
+                className="list-group-item"
+              >
                 Home
-              </Link>
+              </NavLink>
             </div>
           </div>
           <div className="col-xs-6">
