@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { NavLink, Route, Switch } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
 import "./App.css";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import MyNavLink from "./components/myNavLink";
-import Test from "./pages/Test";
 class App extends Component {
   render() {
     return (
@@ -46,11 +45,8 @@ class App extends Component {
           <div className="col-xs-6">
             <div className="panel">
               <div className="panel-body">
-                <Switch>
-                  <Route path="/about" component={About} />
-                  <Route path="/home" component={Home} />
-                  <Route path="/home" component={Test} />
-                </Switch>
+                <Route path="/about" component={About} />
+                <Route path="/home" component={Home} />
               </div>
             </div>
           </div>
