@@ -3,7 +3,6 @@ import { NavLink, Route } from "react-router-dom";
 import "./App.css";
 import About from "./pages/About";
 import Home from "./pages/Home";
-import MyNavLink from "./components/myNavLink";
 class App extends Component {
   render() {
     return (
@@ -24,7 +23,7 @@ class App extends Component {
               <a className="list-group-item" href="./home.html">
                 Home
               </a> */}
-              {/*               <NavLink
+              <NavLink
                 activeClassName="active"
                 to="/about"
                 className="list-group-item"
@@ -37,9 +36,7 @@ class App extends Component {
                 className="list-group-item"
               >
                 Home
-              </NavLink> */}
-              <MyNavLink to="/about">About</MyNavLink>
-              <MyNavLink to="/home">Home</MyNavLink>
+              </NavLink>
             </div>
           </div>
           <div className="col-xs-6">
