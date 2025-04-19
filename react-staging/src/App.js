@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink, Route, Switch } from "react-router-dom";
+import { NavLink, Route, Switch, Redirect } from "react-router-dom";
 // import "./App.css";
 import About from "./pages/About";
 import Home from "./pages/Home";
@@ -50,6 +50,7 @@ class App extends Component {
                   <Route exact path="/about" component={About} />
                   <Route exact path="/home" component={Home} />
                   <Route path="/test" component={Test} />
+                  <Redirect to="/about" />
                 </Switch>
               </div>
             </div>
