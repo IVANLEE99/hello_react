@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import qs from "qs";
 
 export default class Detail extends Component {
   render() {
@@ -20,15 +19,15 @@ export default class Detail extends Component {
         content: "消息003",
       },
     ];
-    const { id, title } = qs.parse(this.props.location.search.slice(1));
+    const { id, title, content } = this.props.match.params;
     const findResult = detailList.find((detailObj) => {
       return detailObj.id === parseInt(id);
     });
     return (
       <div>
         <ul>
-          <li>ID: {id}</li>
-          <li>TITLE: {title}</li>
+          <li>ID: {this.props.match.params.id}</li>
+          <li>TITLE: {this.props.match.params.title}</li>
           <li>Content: {findResult.content}</li>
         </ul>
       </div>

@@ -8,25 +8,19 @@ export default class Messages extends Component {
       <div>
         <ul>
           <li>
-            <Link to="/home/message/detail?id=1&title=message001">
-              message001
-            </Link>
+            <Link to="/home/message/detail/1/message001">message001</Link>
             &nbsp;&nbsp;
           </li>
           <li>
-            <Link to="/home/message/detail?id=2&title=message002">
-              message002
-            </Link>
+            <Link to="/home/message/detail/2/message002">message002</Link>
             &nbsp;&nbsp;
           </li>
           <li>
-            <Link to="/home/message/detail?id=3&title=message003">
-              message003
-            </Link>
+            <Link to="/home/message/detail/3/message003">message003</Link>
             &nbsp;&nbsp;
           </li>
         </ul>
-        <Route path="/home/message/detail" component={Detail} />
+        <Route path="/home/message/detail/:id/:title" component={Detail} />
       </div>
     );
   }
