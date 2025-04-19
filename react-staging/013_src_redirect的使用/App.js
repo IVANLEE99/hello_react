@@ -40,15 +40,15 @@ class App extends Component {
                 Home
               </NavLink> */}
               <MyNavLink to="/about">About</MyNavLink>
-              <MyNavLink to="/home">Home</MyNavLink>
+              <MyNavLink to="/home/ccc">Home</MyNavLink>
             </div>
           </div>
           <div className="col-xs-6">
             <div className="panel">
               <div className="panel-body">
                 <Switch>
-                  <Route path="/about" component={About} />
-                  <Route path="/home" component={Home} />
+                  <Route exact path="/about" component={About} />
+                  <Route exact path="/home" component={Home} />
                   <Route path="/test" component={Test} />
                   <Redirect to="/about" />
                 </Switch>
