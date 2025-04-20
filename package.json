@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "antd": "4",
     "axios": "^1.8.4"
   }
 }
