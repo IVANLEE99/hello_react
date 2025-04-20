@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import qs from "qs";
+import qs from "qs";
 
 export default class Detail extends Component {
   render() {
@@ -20,11 +20,10 @@ export default class Detail extends Component {
         content: "消息003",
       },
     ];
-    // const { id, title } = qs.parse(this.props.location.search.slice(1));
-    const { id, title } = this.props.location.state || {};
+    const { id, title } = qs.parse(this.props.location.search.slice(1));
     const findResult = detailList.find((detailObj) => {
       return detailObj.id === parseInt(id);
-    }) || {};
+    });
     return (
       <div>
         <ul>
