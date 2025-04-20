@@ -20,36 +20,6 @@ export default class Messages extends Component {
               message001
             </Link>
             &nbsp;&nbsp;
-            <button
-              onClick={() => {
-                this.props.history.replace("/home/message/detail/1", {
-                  id: 1,
-                  title: "message001",
-                });
-              }}
-            >
-              replace message001
-            </button>
-            &nbsp;&nbsp;
-            <button
-              onClick={() => {
-                this.props.history.push("/home/message/detail/1", {
-                  id: 1,
-                  title: "message001",
-                });
-              }}
-            >
-              push message001
-            </button>
-            &nbsp;&nbsp;
-            <button
-              onClick={() => {
-                this.props.history.go(2);
-              }}
-            >
-              go 2
-            </button>
-
           </li>
           <li>
             <Link

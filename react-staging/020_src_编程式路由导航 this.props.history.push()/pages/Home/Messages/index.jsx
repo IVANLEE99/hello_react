@@ -49,7 +49,22 @@ export default class Messages extends Component {
             >
               go 2
             </button>
-
+            &nbsp;&nbsp;
+            <button
+              onClick={() => {
+                this.props.history.goForward();
+              }}
+            >
+              forward message001
+            </button>
+            &nbsp;&nbsp;
+            <button
+              onClick={() => {
+                this.props.history.goBack();
+              }}
+            >
+              goBack message001
+            </button>
           </li>
           <li>
             <Link
