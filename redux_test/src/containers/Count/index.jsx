@@ -3,7 +3,7 @@ import {
   incrementAction,
   decrementAction,
   incrementAsyncAction,
-} from "../../redux/count_action";
+} from "../../redux/actions/count";
 import React, { Component } from "react";
 // import store from "../../redux/store";
 class Count extends Component {
@@ -46,7 +46,7 @@ class Count extends Component {
     // let count = store.getState();
     return (
       <div>
-        <h1>Count组件</h1>
+        <h1>Count组件,当前person人数为：{this.props.persons.length}</h1>
         <h2>当前求和为：{this.props.count}</h2>
         <select ref={(c) => (this.selectNumber = c)}>
           <option value="1">1</option>
@@ -64,8 +64,11 @@ class Count extends Component {
   }
 }
 
-export default connect((state) => ({ count: state }), {
-  increment: incrementAction,
-  decrement: decrementAction,
-  incrementAsync: incrementAsyncAction,
-})(Count);
+export default connect(
+  (state) => ({ count: state.count, persons: state.persons }),
+  {
+    increment: incrementAction,
+    decrement: decrementAction,
+    incrementAsync: incrementAsyncAction,
+  }
+)(Count);
