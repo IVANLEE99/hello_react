@@ -9,6 +9,7 @@
 //     this.state = { count: 0 };
 //     // console.log(props, this.context, RootContext);
 //     this.rootInstance = root;
+//     this.inputRef = React.createRef();
 //   }
 //   increment = () => {
 //     const { count } = this.state;
@@ -16,6 +17,9 @@
 //   };
 //   destroy = () => {
 //     this.rootInstance.unmount();
+//   };
+//   show = () => {
+//     alert(this.inputRef.current.value);
 //   };
 //   componentDidMount() {
 //     this.timer = setInterval(() => {
@@ -29,18 +33,21 @@
 //   render() {
 //     return (
 //       <div>
+//         <input ref={this.inputRef} type="text" />
 //         <h1>当前求和为：{this.state.count}</h1>
 //         <button onClick={this.increment}>点击+</button>
 //         <button onClick={this.destroy}>销毁</button>
+//         <button onClick={this.show}>显示输入框的内容</button>
 //       </div>
 //     );
 //   }
 // }
 
 import { root } from "../../util";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 const Demo = () => {
   const [count, setCount] = useState(0);
+  const inputRef = useRef();
   const increment = () => {
     setCount((count) => count + 1);
   };
@@ -58,11 +65,16 @@ const Demo = () => {
   function destroy() {
     root.unmount();
   }
+  function show(){
+    alert(inputRef.current.value)
+  }
   return (
     <div>
+      <input ref={inputRef} type="text" />
       <h1>当前求和为：{count}</h1>
       <button onClick={increment}>点击+</button>
       <button onClick={destroy}>销毁</button>
+      <button onClick={show}>显示输入框的内容</button>
     </div>
   );
 };
