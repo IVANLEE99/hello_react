@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import Demo from "./components/02_lazy";
 
-export default class App extends Component {
+export default class Home extends Component {
   render() {
     return (
       <div>
-        <Demo />
+        <h3>Home组件内容</h3>
       </div>
     );
   }
