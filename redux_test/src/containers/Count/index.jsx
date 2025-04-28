@@ -5,6 +5,9 @@ import {
   incrementAsync,
 } from "../../redux/actions/count";
 import React, { Component } from "react";
+import { Button } from "antd";
+import "antd/dist/antd.css";
+import styles from "./index.module.css";
 // import store from "../../redux/store";
 class Count extends Component {
   state = {
@@ -46,7 +49,7 @@ class Count extends Component {
     // let count = store.getState();
     return (
       <div>
-        <h1>Count组件,当前person人数为：{this.props.persons.length}</h1>
+        <h1 className={styles.count}>Count组件,当前person人数为：{this.props.persons.length}</h1>
         <h2>当前求和为：{this.props.count}</h2>
         <select ref={(c) => (this.selectNumber = c)}>
           <option value="1">1</option>
@@ -54,11 +57,11 @@ class Count extends Component {
           <option value="3">3</option>
         </select>
         &nbsp;
-        <button onClick={this.increment}>加</button>
+        <Button onClick={this.increment}>加</Button>
         &nbsp;
-        <button onClick={this.decrement}>减</button>
-        <button onClick={this.incrementOdd}>奇数加</button>
-        <button onClick={this.incrementAsync}>异步加</button>
+        <Button onClick={this.decrement}>减</Button>
+        <Button onClick={this.incrementOdd}>奇数加</Button>
+        <Button onClick={this.incrementAsync}>异步加</Button>
       </div>
     );
   }
