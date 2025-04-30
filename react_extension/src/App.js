@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Demo from "./components/04_fragment";
+import A from "./components/05_context";
 export default class App extends Component {
   render() {
     return (
       <div>
-        <Demo />
+        <A />
       </div>
     );
   }
