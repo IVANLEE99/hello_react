@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import A from "./components/06_optimize";
+import A from "./components/07_renderProps";
 export default class App extends Component {
   render() {
     return (
