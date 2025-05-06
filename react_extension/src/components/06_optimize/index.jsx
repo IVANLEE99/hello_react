@@ -1,18 +1,18 @@
-import React, { Component } from "react";
+import React, { Component,PureComponent } from "react";
 import "./index.css";
 
-export default class A extends Component {
+export default class A extends PureComponent {
   state = {
     name: "A",
   };
   changeName = () => {
     this.setState({
-      name: this.state.name + "A",
+      // name: this.state.name + "A",
     });
   };
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextState.name !== this.state.name;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return nextState.name !== this.state.name;
+  // }
   render() {
     console.log("A render");
     return (
@@ -27,9 +27,9 @@ export default class A extends Component {
 }
 
 class B extends Component {
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.name !== this.props.name;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return nextProps.name !== this.props.name;
+  // }
   render() {
     console.log("B render");
     return (
