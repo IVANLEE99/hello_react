@@ -1,8 +1,9 @@
-import { NavLink, useRoutes } from "react-router-dom";
+import { BrowserRouter, Routes, Route, NavLink, Navigate } from "react-router-dom";
+import About from "./pages/About";
+import Home from "./pages/Home";
 import "./App.css";
-import routes from "./routes";
+
 function App() {
-  const element = useRoutes(routes);
   function computedClassName({ isActive }) {
     return isActive ? "list-group-item myactive" : "list-group-item";
   }
@@ -28,7 +29,13 @@ function App() {
         </div>
         <div className="col-xs-6">
           <div className="panel">
-            <div className="panel-body">{element}</div>
+            <div className="panel-body">
+              <Routes>
+                <Route path="/about" element={<About />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/" element={<Navigate to="/about" />} />
+              </Routes>
+            </div>
           </div>
         </div>
       </div>
