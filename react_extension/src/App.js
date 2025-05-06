@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import A from "./components/07_renderProps";
+import Parent from "./components/08_ErrorBoundary/Parent";
 export default class App extends Component {
   render() {
     return (
       <div>
-        <A />
+        <Parent />
       </div>
     );
   }
