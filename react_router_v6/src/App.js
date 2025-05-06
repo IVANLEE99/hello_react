@@ -21,7 +21,7 @@ function App() {
             <NavLink className={computedClassName} to="/about">
               About
             </NavLink>
-            <NavLink className={computedClassName} to="/home">
+            <NavLink className={computedClassName} to="/home" end>
               Home
             </NavLink>
           </div>
