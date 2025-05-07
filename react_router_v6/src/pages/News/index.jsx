@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link, Outlet, useNavigate,useNavigationType } from "react-router-dom";
+import { Link, Outlet, useNavigate,useNavigationType,useOutlet,useResolvedPath } from "react-router-dom";
 
 export default function News() {
   const [news, setNews] = useState([
@@ -12,6 +12,8 @@ export default function News() {
   const navigate = useNavigate();
   const navigationType = useNavigationType();
   console.log('navigationType',navigationType);
+  console.log('outlet',useOutlet());
+  console.log('resolvedPath',useResolvedPath('/sdfsdfsd?aaaasdfsdf=aaasdfsdf#ggggg'));
   return (
     <div>
       <ul>
