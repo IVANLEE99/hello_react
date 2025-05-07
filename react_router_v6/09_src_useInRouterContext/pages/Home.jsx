@@ -10,7 +10,7 @@ export default function Home() {
       <div>
         <ul className="nav nav-tabs">
           <li>
-            <NavLink className={computedClassName} to="news" replace>
+            <NavLink className={computedClassName} to="news">
               News
             </NavLink>
           </li>

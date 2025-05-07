@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link, Outlet, useNavigate,useNavigationType } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 export default function News() {
   const [news, setNews] = useState([
@@ -10,8 +10,6 @@ export default function News() {
     { id: 4, title: "news004", content: "粒粒皆辛苦" },
   ]);
   const navigate = useNavigate();
-  const navigationType = useNavigationType();
-  console.log('navigationType',navigationType);
   return (
     <div>
       <ul>
