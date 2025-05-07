@@ -1,11 +1,26 @@
 import React from "react";
+import { useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 
 export default function News() {
+  const [news, setNews] = useState([
+    { id: 1, title: "news001", content: "锄禾日当午" },
+    { id: 2, title: "news002", content: "汗滴禾下土" },
+    { id: 3, title: "news003", content: "谁知盘中餐" },
+    { id: 4, title: "news004", content: "粒粒皆辛苦" },
+  ]);
   return (
-    <ul>
-      <li>news001</li>
-      <li>news002</li>
-      <li>news003</li>
-    </ul>
+    <div>
+      <ul>
+        {news.map((item) => (
+          <li key={item.id}>
+            <Link to={`/home/news/detail/${item.id}/${item.title}/${item.content}`}>
+              {item.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <Outlet />
+    </div>
   );
 }
